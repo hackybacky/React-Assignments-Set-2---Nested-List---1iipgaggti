@@ -154,29 +154,28 @@ const states = [
   },
 ];
 
-const [selectedCity, setSelectedCity] = useState(null);
-const [selectedState, setSelectedState] = useState(null);
-
-const handleStateChange = (state) => {
-  setSelectedState((p) => {
-    if (p != state) setSelectedState(state);
-    else {
-      setSelectedState(null);
-    }
-  });
-  setSelectedCity(null);
-};
-
-const handleCityChange = (city) => {
-  setSelectedCity((p) => {
-    if (p != city) setSelectedCity(city);
-    else {
-      setSelectedCity(null);
-    }
-  });
-};
-
 function App() {
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+
+  const handleStateChange = (state) => {
+    setSelectedState((p) => {
+      if (p != state) setSelectedState(state);
+      else {
+        setSelectedState(null);
+      }
+    });
+    setSelectedCity(null);
+  };
+
+  const handleCityChange = (city) => {
+    setSelectedCity((p) => {
+      if (p != city) setSelectedCity(city);
+      else {
+        setSelectedCity(null);
+      }
+    });
+  };
   return (
     <div id="main">
       {states.map((state, stateIdx) => {
