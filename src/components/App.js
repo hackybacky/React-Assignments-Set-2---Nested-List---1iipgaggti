@@ -154,8 +154,69 @@ const states = [
   },
 ];
 
+const [selectedCity, setSelectedCity] = useState(null);
+const [selectedState, setSelectedState] = useState(null);
+
+const handleStateChange = (state) => {
+  setSelectedState((p) => {
+    if (p != state) setSelectedState(state);
+    else {
+      setSelectedState(null);
+    }
+  });
+  setSelectedCity(null);
+};
+
+const handleCityChange = (city) => {
+  setSelectedCity((p) => {
+    if (p != city) setSelectedCity(city);
+    else {
+      setSelectedCity(null);
+    }
+  });
+};
+
 function App() {
-  return <div id="main"></div>;
+  return (
+    <div id="main">
+      {states.map((state, stateIdx) => {
+        return (
+          <>
+            <div
+              className="state"
+              onClick={() => {
+                handleStateChange(state.name);
+              }}
+            >
+              {stateIdx + 1} {". "}
+              {state.name}
+            </div>
+
+            {selectedState === state.name &&
+              state.cities.map((city, cityIdx) => (
+                <>
+                  <div
+                    className="city"
+                    onClick={() => handleCityChange(city.name)}
+                  >
+                    {`${stateIdx + 1}.${cityIdx + 1}. `}
+                    {city.name}
+                  </div>
+                  {city.name === selectedCity &&
+                    city.towns.map((town, townIdx) => (
+                      <div className="town">
+                        {" "}
+                        {`${stateIdx + 1}.${cityIdx + 1}.${townIdx + 1}. `}
+                        {town.name}
+                      </div>
+                    ))}
+                </>
+              ))}
+          </>
+        );
+      })}
+    </div>
+  );
 }
 
 export default App;

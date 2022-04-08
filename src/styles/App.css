@@ -2,6 +2,11 @@ h1 {
     color: #27aedb;
     text-align: center;
     }
+
+#main {
+    padding: 10% 20%;
+    font-size: larger;
+}
     
 
 button{
@@ -9,8 +14,26 @@ button{
     text-align: center;
     justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
 .bg-pink{
 	background-color:pink;
+}
+
+div {
+    padding: 2%;
+    cursor: pointer;
+}
+
+.state {
+    text-align: left;
+}
+
+.city{
+    margin-left: 40px;
+}
+
+.town{
+    margin-left: 80px;
 }
