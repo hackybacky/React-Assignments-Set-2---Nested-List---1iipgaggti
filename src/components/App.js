@@ -184,6 +184,7 @@ function App() {
           <>
             <div
               className="state"
+              key={`state${stateIdx}`}
               onClick={() => {
                 handleStateChange(state.name);
               }}
@@ -197,6 +198,7 @@ function App() {
                 <>
                   <div
                     className="city"
+                    key={`city${cityIdx}`}
                     onClick={() => handleCityChange(city.name)}
                   >
                     {`${stateIdx + 1}.${cityIdx + 1}. `}
@@ -204,7 +206,7 @@ function App() {
                   </div>
                   {city.name === selectedCity &&
                     city.towns.map((town, townIdx) => (
-                      <div className="town">
+                      <div key={`town${townIdx}`} className="town">
                         {" "}
                         {`${stateIdx + 1}.${cityIdx + 1}.${townIdx + 1}. `}
                         {town.name}
